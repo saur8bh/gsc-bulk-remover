@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GSC Bulk URL Remover</title>
+    <link rel='stylesheet' href='style.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class='container'>
+      <div class='header'>
+        <div class="logo">
+          <img src="img/icon-48.png" alt="GSC Bulk Remover Logo" />
+          <h2>GSC Bulk URL Remover</h2>
+        </div>
+        <div class="header__info">
+          <div class="info-pill">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            URLs must start with https/http
+          </div>
+          <div class="download-toggle">
+            <label class="switch">
+              <input type="checkbox" id='checkbox'/>
+              <span class="slider">
+                <span class="slider-icon"></span>
+              </span>
+            </label>
+            <span>Save Results</span>
+          </div>
+        </div>
+      </div>
+
+      <div class='main'>
+        <div class="card">
+          <div class="removal-options">
+            <h3>Select Removal Type</h3>
+            <div class="radio-group">
+              <div class="radio-item">
+                <input type="radio" id="temporary" name="removal-type" value="temporary" checked>
+                <label for="temporary">
+                  <span class="radio-custom"></span>
+                  <div class="radio-label">
+                    <span>Temporary</span>
+                    <small>Remove URLs temporarily</small>
+                  </div>
+                </label>
+              </div>
+              <div class="radio-item">
+                <input type="radio" id="cache" name="removal-type" value="cache">
+                <label for="cache">
+                  <span class="radio-custom"></span>
+                  <div class="radio-label">
+                    <span>Cache</span>
+                    <small>Clear cached URLs</small>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="upload-section">
+            <div class="file-upload">
+              <label for="fileInput" class="file-label">
+                <div class="upload-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                </div>
+                <div class="upload-text">
+                  <span>Drop your CSV/TXT file here</span>
+                  <small>or click to browse</small>
+                </div>
+              </label>
+              <input type="file" id="fileInput" accept=".csv, .txt">
+            </div>
+            <div class="divider">
+              <span>OR</span>
+            </div>
+          </div>
+
+          <div class="textarea-wrapper">
+            <label for="links">Enter URLs manually</label>
+            <div class="info-message">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              <span>For optimal performance, process up to 100 URLs at a time</span>
+            </div>
+            <textarea 
+              name='links' 
+              id='links' 
+              rows='10' 
+              placeholder='Enter one URL per line:&#10;https://example.com/page1&#10;https://example.com/page2'
+            ></textarea>
+          </div>
+          
+          <div class='action-buttons'>
+            <button id="startBtn" class="primary-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              Start Process
+            </button>
+            <button id="stopBtn" class="danger-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+              Stop
+            </button>
+          </div>
+        </div>
+
+        <div class="messages-container">
+          <h3>Process Status</h3>
+          <div id="messages" class="messages"></div>
+        </div>
+      </div>
+      
+      <div class='footer'>
+        <div class="footer-content">
+          <div class="footer-links">
+            <a href="https://github.com/saur8bh" target="_blank" class="github-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              @saur8bh
+            </a>
+            <span class="divider-dot">
+              <svg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/></svg>
+            </span>
+            <span class="version">v1.0</span>
+          </div>
+          <div class="footer-love">
+            Made with 
+            <span class="heart">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </span> 
+            for the web
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
