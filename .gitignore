@@ -1,0 +1,14 @@
+# Development files
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+
+# Build output
+dist/
+build/
+*.zip
+
+# Dependencies
+node_modules/
