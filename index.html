@@ -103,6 +103,39 @@
 
         <div class="messages-container">
           <h3>Process Status</h3>
+          
+          <div class="progress-section" id="progress-section" style="display: none;">
+            <div class="progress-stats">
+              <div class="stat-item">
+                <span class="stat-label">Progress:</span>
+                <span class="stat-value" id="progress-percentage">0%</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Processed:</span>
+                <span class="stat-value" id="processed-count">0/0</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Time Elapsed:</span>
+                <span class="stat-value" id="time-elapsed">00:00:00</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Est. Remaining:</span>
+                <span class="stat-value" id="time-remaining">--:--:--</span>
+              </div>
+            </div>
+            
+            <div class="progress-bar-container">
+              <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            
+            <div class="progress-details">
+              <div class="detail-item">
+                <span class="detail-label">Current Chunk:</span>
+                <span class="detail-value" id="current-chunk">0/0</span>
+              </div>
+            </div>
+          </div>
+          
           <div id="messages" class="messages"></div>
         </div>
       </div>
@@ -117,7 +150,7 @@
             <span class="divider-dot">
               <svg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/></svg>
             </span>
-            <span class="version">v1.0</span>
+            <span class="version">v2.0</span>
           </div>
           <div class="footer-love">
             Made with 
