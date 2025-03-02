@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "GSC Bulk Remover",
-    "version": "1.0",
+    "version": "2.0",
     "description": "Efficiently remove URLs in bulk from Google Search Console. Perfect for webmasters and SEO professionals managing large-scale URL removals.",
     "author": "@saur8bh",
     "icons": {
@@ -15,7 +15,8 @@
     "permissions": [
       "scripting",
       "activeTab",
-      "storage"
+      "storage",
+      "tabs"
     ],
     "action": {
       "default_popup": "index.html"
